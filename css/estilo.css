@@ -1,0 +1,14 @@
+.lini a{
+    text-decoration: none;
+    color: darkslategrey;
+}
+
+.lini a:hover{
+    transition: 0.25s;
+    text-decoration: none;
+    color: cadetblue;
+}
+
+.lini a, .lini a:hover{
+    font-size: 20px;
+}

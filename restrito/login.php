@@ -13,7 +13,7 @@
         <div>
             <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark py-3">
                 <!--Logo-->
-                <a href="" class="navbar-brand">WorldServices.Tech</a>
+                <a href="../publico/index.html" class="navbar-brand">WorldServices.Tech</a>
     
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
                     <span class="navbar-toggler-icon"></span>

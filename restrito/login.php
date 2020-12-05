@@ -1,7 +1,7 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="pt-br">
     <head>
-        <title>ServicesWorld - Home</title>
+        <title>Tela de login</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../css/estilo.css">
@@ -21,25 +21,25 @@
                 <!--Navegação-->
                 <div class="collapse navbar-collapse" id="menu">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item  active">
-                            <a href="index.html" class="nav-link">Home</a>
+                        <li class="nav-item">
+                            <a href="../publico/index.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="sobre.html" class="nav-link" >Sobre</a>
+                            <a href="../publico/sobre.html" class="nav-link" >Sobre</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Serviços</a>
                         
                             <div class="dropdown-menu">
-                                <a href="servicos.php" class="dropdown-item">Ver Serviços</a>
-                                <a href="" class="dropdown-item">Cadastrar</a>
+                                <a href="../publico/servicos.php" class="dropdown-item">Ver Serviços</a>
+                                <a href="formServicos.php" class="dropdown-item">Cadastrar</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">Carrinho</a>
                         </li>
-                        <li class="nav-item"><a href="../restrito/login.php" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="../restrito/signup.php" class="nav-link">Sign up</a></li>
+                        <li class="nav-item active"><a href="login.php" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="signup.php" class="nav-link">Sign up</a></li>
                     </ul>
                 </div>
             </nav>
@@ -50,36 +50,28 @@
             <img src="../img/photo-3.jpg" style="width: 100%;" alt="">
         </div> 
 
-        <div class="container pt-2" >
 
-            <h1 class="display-4 pt-4">Bem vindo à WorldServices.Tech!</h1>
-            <h3>Sua loja de serviços em informática e tecnologia</h3><br>
-            <hr>
-            <p style="font-size: 18px;">Encontre aqui na WorldServices Tech a solução que você estava procurando pra resolver seu problema em tecnologia. <br>
-            Confira abaixo alguns de nossos serviços.</p> <br><br>
+        <!--Content-->
+        <div class="container pt-2">
+            <h2 class="my-3">Entrar na conta</h2><br>
+            <form action="">
+
+                <div class="form-group col-6">
+                  <label for="">Email</label>
+                  <input class="form-control" type="text" placeholder="Digite seu email">
+                </div>
+                <div class="form-group col-6">
+                  <label for="">Senha</label>
+                  <input class="form-control" type="password" placeholder="Senha">
+                </div>
+                <div class="form-group col-6">
+                    <input class="btn btn-dark text-right" type="submit" value="Login">
+                </div>
+                
+            </form>
             
-    
-            <div class="row">
-                <div class="lini col-4 text-center">
-                    <a href="">
-                      <img src="../img/photo-8.jpg" alt="" class="mb-2">
-                      Criação de websites
-                    </a>
-                </div>
-                <div class="lini col-4 text-center">
-                    <a href="">
-                      <img src="../img/photo-10.jpg" alt="" class="mb-2">
-                      Edição de vídeos
-                    </a>
-                </div>
-                <div class="lini col-4 text-center">
-                    <a href="">
-                      <img src="../img/photo-7.jpg" alt="" class="mb-2">
-                      Formatação de TCC
-                    </a>
-                </div>
-            </div><br><br>
         </div>
+
         <!--Rodape-->
         <div id="rodape" class="footer">
             <div>

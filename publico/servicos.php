@@ -24,22 +24,22 @@
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="sobre.html" class="nav-link">Sobre</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown  active">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Serviços</a>
                     
                         <div class="dropdown-menu">
                             <a href="servicos.php" class="dropdown-item">Ver Serviços</a>
                             <a href="" class="dropdown-item">Cadastrar</a>
-                        </div>  
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="" class="nav-link">Carrinho</a>
                     </li>
                     <li class="nav-item"><a href="../restrito/login.php" class="nav-link">Login</a></li>
-                    <li class="nav-item"><a href="../restrito/signup.php" class="nav-link">Sign up</a></li>
+                    <li class="nav-item"><a href="../restrito/formUsuario" class="nav-link">Sign up</a></li>
                 </ul>
             </div>
         </nav>
@@ -47,22 +47,20 @@
     
     <!--Banner-->
     <div id="banner" class="mt-5">
-        <!--<img src="../img/photo-12-larg.jpg" style="width: 100%;" alt="">-->
-        <img src="../img/photo-14-larg.jpg" style="width: 100%;" alt="">
+        <img src="../img/photo-1-serv.jpg" style="width: 100%;" alt="">
     </div> 
 
+    <!--Conteudo entra aqui-->
     <div class="container pt-2" >
 
-        <h1 class="display-4 pt-4">Sobre a WorldServices</h1><br>
+        <h2 class="display-4 pt-4">Confira abaixo</h2><br>
 
-        <p>A WorldServices Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi esse molestias expedita, recusandae odio error cupiditate minus delectus repudiandae vitae eaque assumenda? Tempore dolor error quis fuga rerum pariatur distinctio!
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus eligendi laudantium? Aperiam amet dolor veniam at, modi ea ipsam rem non sapiente, vero ipsum illum corporis libero qui quam quod iusto! Odio ullam corrupti, porro rem reiciendis, neque inventore aliquid explicabo optio ea distinctio dolorem nesciunt. Blanditiis, quam sapiente.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sapiente assumenda ipsa tempora qui itaque! Architecto veritatis autem a labore consequatur pariatur. Ullam libero corporis fugiat accusantium. Sapiente iusto perferendis dignissimos fugiat ratione, nihil in nulla amet vel veniam. Magnam magni eum mollitia eligendi delectus architecto ipsum cumque voluptatum, aspernatur saepe. Eos, mollitia numquam! Totam deleniti eius quam molestias velit perferendis, tenetur enim voluptatum fugiat quasi, quos distinctio doloremque recusandae dolores corrupti unde obcaecati ut. Temporibus magnam dolorem maiores inventore, eligendi recusandae neque laboriosam facilis consequuntur suscipit voluptas reiciendis adipisci cum, nesciunt tenetur doloribus perspiciatis. Distinctio sit architecto placeat vitae odit cupiditate maxime obcaecati, mollitia nam beatae laudantium, voluptatem odio recusandae laboriosam praesentium. Quia sint cum debitis ea omnis aperiam modi. Nisi enim dolor corrupti reprehenderit mollitia, minus molestiae facilis autem laborum atque cupiditate quos sint natus debitis iusto placeat ex impedit perferendis, numquam similique. Aliquid velit minus autem repellendus.</p>
-
-        <div class="row">
+        <!--GET aqui-->
+        <div id="servicos" class="row">
             
         </div>
     </div>
+
     <!--Rodape-->
     <div id="rodape" class="footer">
         <div>

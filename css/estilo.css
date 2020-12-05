@@ -12,3 +12,19 @@
 .lini a, .lini a:hover{
     font-size: 20px;
 }
+
+.footer{
+    text-align: center;
+    color: gainsboro;
+    padding: 6px 0 2px 0;
+}
+
+#rodape{
+    background-color: black;
+    margin-top: 20px;
+}
+
+#rdpAut{
+    font-size: 12px;
+    color: grey;
+}

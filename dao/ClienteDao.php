@@ -29,18 +29,18 @@
             return date('Y-m-d', $data);
         }
 
-        public function getClientes(){
-            $sql = $this->con->prepare("SELECT * FROM clientes");
-            $sql->execute();
+        // public function getClientes(){
+        //     $sql = $this->con->prepare("SELECT * FROM clientes");
+        //     $sql->execute();
       
-            $lista = array();
-            while($autor = $sql->fetch(PDO::FETCH_OBJ)){
-               $lista[] = $cliente;
-            }
-            return $lista;
-         }
+        //     $lista = array();
+        //     while($autor = $sql->fetch(PDO::FETCH_OBJ)){
+        //        $lista[] = $cliente;
+        //     }
+        //     return $lista;
+        // }
 
-        /*public function getClientes() {
+        public function getClientes() {
             $rs = $this->con->query("SELECT * FROM clientes");
 
             $lista = array();
@@ -48,7 +48,7 @@
                 $lista[] = $cliente;
             }
             return $lista;
-        }*/
+        }
 
         public function excluirCliente($cpf) {
             $sql = $this->con->prepare("delete from clientes where CPF = :cpf");

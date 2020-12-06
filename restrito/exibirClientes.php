@@ -1,10 +1,10 @@
 <?php
-      function formatarData($data){
+    function formatarData($data){
         return date('d/m/Y',$data);
-      }
+    }
       
-      session_start();
-      $clientes = $_SESSION['clientes'];
+    session_start();
+    $clientes = $_SESSION['clientes'];
 
 ?>
 <html>
@@ -37,16 +37,16 @@
 
     foreach($clientes as $cliente) {
       echo "<tr align='center'>";
-      echo "<td>".$cliente->nome."</td>";
-      echo "<td>".$cliente->endereco."</td>";
-      echo "<td>".$cliente->telefone."</td>";
-      echo "<td>".$cliente->cpf."</td>";
-      echo "<td>".formatarData(strtotime($cliente->data_nascimento))."</td>";
-      echo "<td>".$cliente->email."</td>";
-      echo "<td>".$cliente->senha."</td>";
+      echo "<td>".$cliente->Nome."</td>";
+      echo "<td>".$cliente->Endereco."</td>";
+      echo "<td>".$cliente->Telefone."</td>";
+      echo "<td>".$cliente->CPF."</td>";
+      echo "<td>".formatarData(strtotime($cliente->DtNascimento))."</td>";
+      echo "<td>".$cliente->Email."</td>";
+      echo "<td>".$cliente->Senha."</td>";
 
       echo "<td><a href='../controller/controllerCliente.php?opcao=3&id=".$cliente->CodCli."'> Alterar</a>&nbsp;";
-      echo "<a href='../controller/controllerCliente.php?opcao=4&id=".$cliente->cpf."'> Excluir</a></td></tr>";
+      echo "<a href='../controller/controllerCliente.php?opcao=4&id=".$cliente->CodCli."'> Excluir</a></td></tr>";
     }
 
   ?>

@@ -3,9 +3,30 @@
     require_once("../dao/ClienteDao.php");
 
     $opcao = (int) $_REQUEST['opcao'];
-    $clienteDao = new ClienteDao();
+
+    switch ($opcao) {
+        case 1:
+            inserir();
+            break;
+        case 2:
+            exibir();
+            break;
+        case 3:
+            buscar();
+            break;
+        case 4:
+            op4();
+            break;
+        case 5:
+            op5();
+            break;
+        
+        default:
+            echo "<h1 style='text-align:center'>Opção não encontrada!</h1>";
+            break;
+    }
     
-    if ($opcao == 1) {
+    function inserir(){
         $nome = $_REQUEST["nome"];
         $endereco = $_REQUEST["endereco"];
         $telefone = $_REQUEST["telefone"];
@@ -17,18 +38,21 @@
         $cliente = new Cliente($nome, $endereco, $telefone, $cpf, $dataNascimento,  $email, $senha);
         $clienteDao->incluirCliente($cliente);
 
-        header("Location: ../controller/controllerCliente.php?opcao=2");
+        exibir();
+    }
 
-    } if ($opcao == 2) {
+
+    function exibir(){
         $clienteDao = new ClienteDao();
         $listaClientes = $clienteDao->getClientes();
         session_start();
         $_SESSION['clientes'] = $listaClientes;
 
         header("Location: ../restrito/exibirClientes.php");
-
-
-    } if ($opcao == 3) {
+    } 
+    
+    
+    function buscar() {
         $cpf = (int) $_REQUEST['cpf'];
         $cliente = $clienteDao->getCliente($cpf);
 
@@ -36,16 +60,18 @@
         $_SESSION['cliente'] = $cliente;
 
         header("Location: ../restrito/formClienteAtualizar.php");
+    }
 
-
-    } 
-    if ($opcao == 4) {
+    
+    function op4(){
         $cpf = (int) $_REQUEST['cpf'];
         $clienteDao->excluirCliente($cpf);
 
         header("Location: ../controller/controllerCliente.php?opcao=2");
-    } 
-     if ($opcao == 5) {
+    }
+    
+
+    function op5(){
         
         $nome = $_REQUEST["nome"];
         $endereco = $_REQUEST["endereco"];
@@ -54,7 +80,7 @@
         $dataNascimento = $_REQUEST["dataNascimento"];
         $email = $_REQUEST["email"];
         $senha = $_REQUEST["senha"];
-        $codCli = $_REQUEST["codCliente"]
+        $codCli = $_REQUEST["codCliente"];
 
         $cliente = new Cliente($nome, $endereco, $telefone, $cpf, $dataNascimento, $email, $senha);
         $cliente->setCodCliente($codCli);

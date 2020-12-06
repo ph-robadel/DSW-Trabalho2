@@ -2,7 +2,7 @@
   class Conexao{  
 
     private $servidor_mysql = 'localhost';
-    private $nome_banco = 'bd_tema1';
+    private $nome_banco = 'empresaDB';
     private $usuario = 'root';
     private $senha = '';
     private $con;

@@ -19,7 +19,7 @@
         <h2>Alteração de Clientes</h2>
         <form action="../controller/controllerCliente.php" >
         <input type="hidden" size="3" name="opcao" value="5">
-       
+            <label> Codigo: </label><input type="text" name="codCliente" value="<?php echo $cliente->codCliente ?>" readonly><br><br>
             <label> Nome: </label><input type="text" name="nome" value="<?php echo $cliente->nome ?>"><br><br>
             <label> Endereço: </label><input type="text" name="endereco" value="<?php echo $cliente->endereco ?>"><br><br>
             <label> Telefone: </label><input type="text" name="telefone" value=" <?php echo  $cliente->telefone ?>"><br><br>

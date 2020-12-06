@@ -1,6 +1,6 @@
 <?php
-    include_once("../model/modelo.php");
-    include_once("../dao/Conexao.php");
+    require_once("../model/modelo.php");
+    require_once("Conexao.php");
 
     class ClienteDao {
         private $con;
@@ -22,7 +22,6 @@
             $sql->bindValue(':email', $cliente->getEmail());
             $sql->bindValue(':senha', $cliente->getSenha());
             
-            
             $sql->execute();
         }
 
@@ -30,16 +29,26 @@
             return date('Y-m-d', $data);
         }
 
-        public function getClientes() {
-            $rs = $this->con->query("select * from clientes");
+        public function getClientes(){
+            $sql = $this->con->prepare("SELECT * FROM clientes");
+            $sql->execute();
+      
+            $lista = array();
+            while($autor = $sql->fetch(PDO::FETCH_OBJ)){
+               $lista[] = $cliente;
+            }
+            return $lista;
+         }
+
+        /*public function getClientes() {
+            $rs = $this->con->query("SELECT * FROM clientes");
 
             $lista = array();
-
             while ($cliente = $rs->fetch(PDO::FETCH_OBJ)) {
                 $lista[] = $cliente;
             }
             return $lista;
-        }
+        }*/
 
         public function excluirCliente($cpf) {
             $sql = $this->con->prepare("delete from clientes where CPF = :cpf");

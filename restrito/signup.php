@@ -53,34 +53,35 @@
         <!--Content-->
         <div class="container pt-2">
             <h2 class="my-3">Inscreva-se</h2><br>
-            <form action="">
+            <form action="../controller/controllerCliente.php" method="POST">
+                <input type="hidden" name="opcao" value="1">
                 <div class="form-group col-6">
                   <label for="">Nome completo</label>
-                  <input class="form-control" type="text" placeholder="Digite seu nome">
+                  <input class="form-control" type="text" placeholder="Digite seu nome" name="nome">
                 </div>
                 <div class="form-group col-6">
                   <label for="">CPF</label>
-                  <input class="form-control" type="text" placeholder="Digite apenas os números do seu CPF">
+                  <input class="form-control" type="text" name="cpf" placeholder="Digite apenas os números do seu CPF">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Data de Nascimento</label>
-                  <input class="form-control" type="date">
+                  <input class="form-control" type="date" name="dataNascimento">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Email</label>
-                  <input class="form-control" type="text" placeholder="Digite seu email">
+                  <input class="form-control" type="text" name="email" placeholder="Digite seu email">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Telefone</label>
-                  <input class="form-control" type="text" placeholder="Digite seu telefone">
+                  <input class="form-control" type="text" name="telefone" placeholder="Digite seu telefone">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Endereço</label>
-                  <input class="form-control" type="text" placeholder="Digite seu endereço completo">
+                  <input class="form-control" type="text" name="endereco" placeholder="Digite seu endereço completo">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Cadatre sua senha</label>
-                  <input class="form-control" type="password" placeholder="Senha">
+                  <input class="form-control" type="password" name="senha" placeholder="Senha">
                 </div>
                 <div class="form-group col-6">
                     <input class="btn btn-success" type="submit" value="Enviar">

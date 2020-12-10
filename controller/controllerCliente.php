@@ -36,9 +36,12 @@
         $senha = $_REQUEST["senha"];
         
         $cliente = new Cliente($nome, $endereco, $telefone, $cpf, $dataNascimento,  $email, $senha);
+        
+        $clienteDao = new ClienteDao();
+        var_dump($cliente);
         $clienteDao->incluirCliente($cliente);
 
-        exibir();
+        // exibir();
     }
 
 

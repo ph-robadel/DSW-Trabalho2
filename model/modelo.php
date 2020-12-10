@@ -25,6 +25,7 @@
             
         
         }
+        
         function getCodCliente() {
             return $this->codCliente;
         }

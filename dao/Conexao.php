@@ -4,7 +4,7 @@
     private $servidor_mysql = 'localhost';
     private $nome_banco = 'empresaDB';
     private $usuario = 'root';
-    private $senha = '12';
+    private $senha = '';
     private $con;
 
     public function getConexao(){

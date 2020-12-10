@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!--Topo-->
 <div>
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark py-3">
@@ -21,17 +25,23 @@
                 
                     <div class="dropdown-menu">
                         <a href="servicos.php" class="dropdown-item">Ver Serviços</a>
-                        <a href="formServicos.php" class="dropdown-item">Cadastrar</a>
+                        <?php
+                            if(!isset($_SESSION["login-cliente"])){
+                                echo '<a href="login.php" class="dropdown-item">Cadastrar</a>';
+                            }else{
+                                echo '<a href="formServicos.php" class="dropdown-item">Cadastrar</a>';
+                            }
+                        ?>
                     </div>
+
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">Carrinho</a>
                 </li>
                 <?php
-                    session_start();
                     if(!isset($_SESSION["login-cliente"])){
                         echo '<li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>';
-                        echo '<li class="nav-item active"><a href="signup.php" class="nav-link">Sign up</a></li>';
+                        echo '<li class="nav-item"><a href="signup.php" class="nav-link">Sign up</a></li>';
                     }else{
                         echo '<li class="nav-item"><a href="dadosCliente.php" class="nav-link">Meus dados</a></li>';
                     }

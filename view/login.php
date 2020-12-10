@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -26,7 +30,7 @@
                 <input type="hidden" name="opcao" value="3">
                 <div class="form-group col-6">
                   <label for="">Email
-                    .<input class="form-control" type="text" name="email" placeholder="Digite seu email">
+                    <input class="form-control" type="text" name="email" placeholder="Digite seu email">
                   </label>
                 </div>
                 <div class="form-group col-6">
@@ -39,7 +43,7 @@
                 </div>
             </form>
             <?php 
-                if($_SESSION["login-status"] == 1){
+                if(isset($_SESSION["login-status"])){
                     echo "Falha na autenticação!<br>";
                     $_SESSION["login-status"] = NULL;
                 }

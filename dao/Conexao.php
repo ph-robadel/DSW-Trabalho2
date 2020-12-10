@@ -4,13 +4,12 @@
     private $servidor_mysql = 'localhost';
     private $nome_banco = 'empresaDB';
     private $usuario = 'root';
-    private $senha = '123456';
+    private $senha = '';
     private $con;
 
     public function getConexao(){
       $this->con = new PDO("mysql:host=$this->servidor_mysql; dbname=$this->nome_banco","$this->usuario","$this->senha");
       return $this->con;
     }
-
   }
 ?>

@@ -40,7 +40,7 @@
         $clienteDao = new ClienteDao();
         $clienteDao->incluirCliente($cliente);
 
-        header("Location:../restrito/login.php");
+        header("Location:../view/login.php");
     }
 
 
@@ -51,7 +51,7 @@
         session_start();
         $_SESSION['clientes'] = $listaClientes;
 
-        header("Location: ../restrito/exibirClientes.php");
+        header("Location: ../view/exibirClientes.php");
     }
 
     function autenticar(){
@@ -64,10 +64,10 @@
         session_start();
         if($cliente == NULL){
             $_SESSION["login-status"] = 1;
-            header("Location:../restrito/login.php");
+            header("Location:../view/login.php");
         }else{
             $_SESSION["login-cliente"] = $cliente;
-            header("Location:../restrito/exibirServicos.php");
+            header("Location:../view/exibirServicos.php");
         }
     }
     
@@ -79,7 +79,7 @@
         session_start();
         $_SESSION['cliente'] = $cliente;
 
-        header("Location: ../restrito/formClienteAtualizar.php");
+        header("Location: ../view/formClienteAtualizar.php");
     }
 
     
@@ -87,7 +87,7 @@
         $cpf = (int) $_REQUEST['cpf'];
         $clienteDao->excluirCliente($cpf);
 
-        header("Location: ../controller/controllerCliente.php?opcao=2");
+        header("Location: controllerCliente.php?opcao=2");
     }
     
 
@@ -106,7 +106,7 @@
         $cliente->setCodCliente($codCli);
         $clienteDao->atualizarCliente($cliente);
         
-        header("Location: ../controller/controllerCliente.php?opcao=2");
+        header("Location: controllerCliente.php?opcao=2");
     }
     
 ?>

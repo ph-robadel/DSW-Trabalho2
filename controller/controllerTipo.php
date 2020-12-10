@@ -13,7 +13,7 @@
         
         $tipoDao->incluirTipo($idTipo);
 
-        header("Location: ../controller/controllerTipo.php?opcao=2");
+        header("Location: controllerTipo.php?opcao=2");
 
     } if ($opcao == 2) {
 
@@ -22,7 +22,7 @@
         session_start();
         $_SESSION['listaTipos'] = $listaTipos;
 
-        header("Location: ../restrito/exibirTipos.php");
+        header("Location:  ../view/exibirTipos.php");
 
 
     } if ($opcao == 3) {
@@ -34,7 +34,7 @@
         session_start();
         $_SESSION['tipo'] = $tipo;
 
-        header("Location: ../restrito/formTipoAtualizar.php");
+        header("Location:  ../view/formTipoAtualizar.php");
 
 
     } 
@@ -44,7 +44,7 @@
 
         $tipoDao->excluirTipo($idTipo);
 
-        header("Location: ../controller/controllerTipo.php?opcao=2");
+        header("Location: controllerTipo.php?opcao=2");
     } 
      if ($opcao == 5) {
         
@@ -57,7 +57,7 @@
         
         $tipoDao->atualizarTipo($tipo);
         
-        header("Location: ../controller/controllerTipo.php?opcao=2");
+        header("Location: controllerTipo.php?opcao=2");
     }
     
 ?>

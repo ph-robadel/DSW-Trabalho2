@@ -16,7 +16,7 @@
         
         $servicoDao->incluirServico($servico);
 
-        header("Location: ../controller/controllerServico.php?opcao=2");
+        header("Location: controllerServico.php?opcao=2");
 
     } if ($opcao == 2) {
         $listaServicos = $servicoDao->getServicos();
@@ -24,7 +24,7 @@
         session_start();
         $_SESSION['listaServicos'] = $listaServicos;
 
-        header("Location: ../restrito/exibirServicos.php");
+        header("Location:  ../view/exibirServicos.php");
 
 
     } if ($opcao == 3) {
@@ -35,7 +35,7 @@
         session_start();
         $_SESSION['servico'] = $servico;
 
-        header("Location: ../restrito/formServicoAtualizar.php");
+        header("Location:  ../view/formServicoAtualizar.php");
 
 
     } 
@@ -44,7 +44,7 @@
 
         $servicoDao->excluirServico($idServico);
 
-        header("Location: ../controller/controllerServico.php?opcao=2");
+        header("Location: controllerServico.php?opcao=2");
     } 
      if ($opcao == 5) {
         
@@ -59,7 +59,7 @@
         
         $servicoDao->atualizarServico($servico);
         
-        header("Location: ../controller/controllerServico.php?opcao=2");
+        header("Location: controllerServico.php?opcao=2");
     }
     
 ?>

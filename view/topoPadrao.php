@@ -2,7 +2,7 @@
 <div>
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark py-3">
         <!--Logo-->
-        <a href="../publico/index.html" class="navbar-brand">WorldServices.Tech</a>
+        <a href="../view/index.php" class="navbar-brand">WorldServices.Tech</a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
             <span class="navbar-toggler-icon"></span>
@@ -11,10 +11,10 @@
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="../publico/index.html" class="nav-link">Home</a>
+                    <a href="../view/index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../publico/sobre.html" class="nav-link" >Sobre</a>
+                    <a href="../view/sobre.php" class="nav-link" >Sobre</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Serviços</a>

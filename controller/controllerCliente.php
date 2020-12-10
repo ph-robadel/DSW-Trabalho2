@@ -67,7 +67,7 @@
             header("Location:../view/login.php");
         }else{
             $_SESSION["login-cliente"] = $cliente;
-            header("Location:../view/exibirServicos.php");
+            header("Location:../view/servicos.php");
         }
     }
     

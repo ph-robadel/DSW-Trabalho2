@@ -9,41 +9,9 @@
 
     </head>
     <body style="width: auto;" class="bg-light">
-        <!--Topo-->
-        <div>
-            <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark py-3">
-                <!--Logo-->
-                <a href="../publico/index.html" class="navbar-brand">WorldServices.Tech</a>
-    
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!--Navegação-->
-                <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="../publico/index.html" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../publico/sobre.html" class="nav-link" >Sobre</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Serviços</a>
-                        
-                            <div class="dropdown-menu">
-                                <a href="../publico/servicos.php" class="dropdown-item">Ver Serviços</a>
-                                <a href="formServicos.php" class="dropdown-item">Cadastrar</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Carrinho</a>
-                        </li>
-                        <li class="nav-item active"><a href="login.php" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="signup.php" class="nav-link">Sign up</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        <?php 
+            require_once("topoPadrao.php");
+        ?>
         
         <!--Banner-->
         <div id="banner">
@@ -54,22 +22,28 @@
         <!--Content-->
         <div class="container pt-2">
             <h2 class="my-3">Entrar na conta</h2><br>
-            <form action="">
-
+            <form action="../controller/controllerCliente.php">
+                <input type="hidden" name="opcao" value="3">
                 <div class="form-group col-6">
-                  <label for="">Email</label>
-                  <input class="form-control" type="text" placeholder="Digite seu email">
+                  <label for="">Email
+                    .<input class="form-control" type="text" name="email" placeholder="Digite seu email">
+                  </label>
                 </div>
                 <div class="form-group col-6">
-                  <label for="">Senha</label>
-                  <input class="form-control" type="password" placeholder="Senha">
+                  <label for="">Senha
+                    <input class="form-control" type="password" name="senha" placeholder="Senha">
+                  </label>
                 </div>
                 <div class="form-group col-6">
                     <input class="btn btn-dark text-right" type="submit" value="Login">
                 </div>
-                
             </form>
-            
+            <?php 
+                if($_SESSION["login-status"] == 1){
+                    echo "Falha na autenticação!<br>";
+                    $_SESSION["login-status"] = NULL;
+                }
+            ?>
         </div>
 
         <!--Rodape-->

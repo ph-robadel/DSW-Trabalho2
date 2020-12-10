@@ -12,7 +12,7 @@
 
         public function incluirCliente(Cliente $cliente) {
             $sql = $this->con->prepare("insert into clientes (nome, endereco, telefone, cpf, dtNascimento, email, senha)
-            values ( :nome, :endereco, :telefone, :cpf, :dataNascimento, :email, :senha)");
+                                        values ( :nome, :endereco, :telefone, :cpf, :dataNascimento, :email, :senha)");
             
             $sql->bindValue(':nome', $cliente->getNome());
             $sql->bindValue(':endereco', $cliente->getEndereco());
@@ -23,8 +23,6 @@
             $sql->bindValue(':senha', $cliente->getSenha());
             
             $sql->execute();
-            
-            exit;
         }
 
         private function converteDataMySQL($data) {
@@ -70,20 +68,34 @@
             return $sql->fetch(PDO::FETCH_OBJ);
         }
 
+        public function autenticarCliente($email, $senha){
+            $sql = $this->con->prepare("select * from clientes where email = :email and senha = :senha");
+            $sql->bindValue(':email', $email);
+            $sql->bindValue(':senha', $senha);
+            $sql->execute();
+    
+            if($sql->rowCount() > 0 )
+                $cliente = $sql->fetch(PDO::FETCH_OBJ);
+            else
+                $cliente = NULL;
+            
+            return $cliente;
+        }
 
-  public function atualizarCliente(Cliente $cliente) {
-        $sql = $this->con->prepare("update clientes set Nome= :nome, Endereco= :endereco ,Telefone=:telefone,Cpf=:cpf, DtNascimento= :dataNascimento, Email=:email,Senha=:senha where CPF = :cpf");
-        
-            $sql->bindValue(':nome', $cliente->getNome());
-            $sql->bindValue(':endereco', $cliente->getEndereco());
-            $sql->bindValue(':telefone', $cliente->getTelefone());
-            $sql->bindValue(':cpf', $cliente->getCpf());
-            $sql->bindValue(':dataDeNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
-            $sql->bindValue(':email', $cliente->getEmail());
-            $sql->bindValue(':senha', $cliente->getSenha());
-        
-        $sql->execute();
-    }
+
+        public function atualizarCliente(Cliente $cliente) {
+            $sql = $this->con->prepare("update clientes set Nome= :nome, Endereco= :endereco ,Telefone=:telefone,Cpf=:cpf, DtNascimento= :dataNascimento, Email=:email,Senha=:senha where CPF = :cpf");
+            
+                $sql->bindValue(':nome', $cliente->getNome());
+                $sql->bindValue(':endereco', $cliente->getEndereco());
+                $sql->bindValue(':telefone', $cliente->getTelefone());
+                $sql->bindValue(':cpf', $cliente->getCpf());
+                $sql->bindValue(':dataDeNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
+                $sql->bindValue(':email', $cliente->getEmail());
+                $sql->bindValue(':senha', $cliente->getSenha());
+            
+            $sql->execute();
+        }
     
     }
 ?>

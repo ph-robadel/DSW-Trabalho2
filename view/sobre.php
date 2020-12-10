@@ -9,41 +9,9 @@
 
 </head>
 <body style="width: auto;" class="bg-light">
-    <!--Topo-->
-    <div>
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark py-3">
-            <!--Logo-->
-            <a href="index.html" class="navbar-brand">WorldServices.Tech</a>
-
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--Navegação-->
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a href="sobre.html" class="nav-link">Sobre</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Serviços</a>
-                    
-                        <div class="dropdown-menu">
-                            <a href="servicos.php" class="dropdown-item">Ver Serviços</a>
-                            <a href="../restrito/formServicos.php" class="dropdown-item">Cadastrar</a>
-                        </div>  
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Carrinho</a>
-                    </li>
-                    <li class="nav-item"><a href="../restrito/login.php" class="nav-link">Login</a></li>
-                    <li class="nav-item"><a href="../restrito/signup.php" class="nav-link">Sign up</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <?php 
+            require_once("topoPadrao.php");
+    ?>
     
     <!--Banner-->
     <div id="banner" class="mt-5">

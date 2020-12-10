@@ -4,9 +4,7 @@
       }
       
       session_start();
-
       $servicos = $_SESSION['servicos'];
-
 ?>
 <HTML>
 

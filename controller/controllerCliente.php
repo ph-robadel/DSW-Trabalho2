@@ -12,7 +12,7 @@
             exibir();
             break;
         case 3:
-            buscar();
+            autenticar();
             break;
         case 4:
             op4();
@@ -44,14 +44,32 @@
     }
 
 
-    // function exibir(){
-    //     $clienteDao = new ClienteDao();
-    //     $listaClientes = $clienteDao->getClientes();
-    //     session_start();
-    //     $_SESSION['clientes'] = $listaClientes;
+    function exibir(){
+        $clienteDao = new ClienteDao();
+        $listaClientes = $clienteDao->getClientes();
 
-    //     header("Location: ../restrito/exibirClientes.php");
-    // } 
+        session_start();
+        $_SESSION['clientes'] = $listaClientes;
+
+        header("Location: ../restrito/exibirClientes.php");
+    }
+
+    function autenticar(){
+        $email = $_REQUEST['email'];
+        $senha = $_REQUEST['senha'];
+        
+        $clienteDao = new ClienteDao();
+        $cliente = $clienteDao->autenticarCliente($email, $senha);
+
+        session_start();
+        if($cliente == NULL){
+            $_SESSION["login-status"] = 1;
+            header("Location:../restrito/login.php");
+        }else{
+            $_SESSION["login-cliente"] = $cliente;
+            header("Location:../restrito/exibirServicos.php");
+        }
+    }
     
     
     function buscar() {

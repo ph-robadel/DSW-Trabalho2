@@ -11,19 +11,20 @@
         }
 
         public function incluirCliente(Cliente $cliente) {
-            echo "Ok";
             $sql = $this->con->prepare("insert into clientes (nome, endereco, telefone, cpf, dtNascimento, email, senha)
-                                        values ( :nome, :endereco, :telefone, :cpf, :dataNascimento, :email, :senha)");
-
+            values ( :nome, :endereco, :telefone, :cpf, :dataNascimento, :email, :senha)");
+            
             $sql->bindValue(':nome', $cliente->getNome());
             $sql->bindValue(':endereco', $cliente->getEndereco());
             $sql->bindValue(':telefone', $cliente->getTelefone());
             $sql->bindValue(':cpf', $cliente->getCpf());
-            $sql->bindValue(':dataDeNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
+            $sql->bindValue(':dataNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
             $sql->bindValue(':email', $cliente->getEmail());
             $sql->bindValue(':senha', $cliente->getSenha());
             
             $sql->execute();
+            
+            exit;
         }
 
         private function converteDataMySQL($data) {

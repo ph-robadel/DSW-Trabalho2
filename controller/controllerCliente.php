@@ -38,21 +38,20 @@
         $cliente = new Cliente($nome, $endereco, $telefone, $cpf, $dataNascimento,  $email, $senha);
         
         $clienteDao = new ClienteDao();
-        var_dump($cliente);
         $clienteDao->incluirCliente($cliente);
 
-        // exibir();
+        header("Location:../restrito/login.php");
     }
 
 
-    function exibir(){
-        $clienteDao = new ClienteDao();
-        $listaClientes = $clienteDao->getClientes();
-        session_start();
-        $_SESSION['clientes'] = $listaClientes;
+    // function exibir(){
+    //     $clienteDao = new ClienteDao();
+    //     $listaClientes = $clienteDao->getClientes();
+    //     session_start();
+    //     $_SESSION['clientes'] = $listaClientes;
 
-        header("Location: ../restrito/exibirClientes.php");
-    } 
+    //     header("Location: ../restrito/exibirClientes.php");
+    // } 
     
     
     function buscar() {

@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(isset($_SESSION["login-cliente"])){
+        header("Location:servicos.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,17 +32,18 @@
             <form action="../controller/controllerCliente.php">
                 <input type="hidden" name="opcao" value="3">
                 <div class="form-group col-6">
-                  <label for="">Email
-                    <input class="form-control" type="text" name="email" placeholder="Digite seu email">
+                  <label for="">E-mail
+                    <input class="form-control" type="text" name="email" placeholder="Digite seu e-mail">
                   </label>
                 </div>
                 <div class="form-group col-6">
                   <label for="">Senha
-                    <input class="form-control" type="password" name="senha" placeholder="Senha">
+                    <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
                   </label>
                 </div>
                 <div class="form-group col-6">
-                    <input class="btn btn-dark text-right" type="submit" value="Login">
+                    <input class="btn btn-success text-right" type="submit" value="Login">
+                    <a href="signup.php" style="padding: 9px; color: white; background-color: gray; border-radius: 3px; text-decoration:none">Criar conta</a>
                 </div>
             </form>
             <?php 

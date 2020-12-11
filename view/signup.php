@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION["login-cliente"])){
+        header("Location:servicos.php");
+    }
+?>
+
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>

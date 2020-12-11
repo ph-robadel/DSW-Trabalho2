@@ -20,6 +20,7 @@
                 <li class="nav-item">
                     <a href="../view/sobre.php" class="nav-link" >Sobre</a>
                 </li>
+                
                 <li class="nav-item dropdown">
                     <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Serviços</a>
                 
@@ -29,7 +30,7 @@
                             if(!isset($_SESSION["login-cliente"])){
                                 echo '<a href="login.php" class="dropdown-item">Cadastrar novo serviço</a>';
                             }else{
-                                echo '<a href="formServicos.php" class="dropdown-item">Cadastrar</a>';
+                                echo '<a href="formServicos.php" class="dropdown-item">Cadastrar novo serviço</a>';
                                 echo '<a href="formServicos.php" class="dropdown-item">Meus serviços</a>';
                             }
                         ?>
@@ -37,7 +38,11 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Carrinho</a>
+                    <?php 
+                        if(isset($_SESSION["login-cliente"])){
+                            echo '<a href="Carrinho.php" class="nav-link">Carrinho</a>';
+                        }
+                    ?>
                 </li>
                 <?php
                     if(!isset($_SESSION["login-cliente"])){

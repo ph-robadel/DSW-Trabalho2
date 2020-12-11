@@ -31,7 +31,7 @@
                                 echo '<a href="login.php" class="dropdown-item">Cadastrar novo serviço</a>';
                             }else{
                                 echo '<a href="formServicos.php" class="dropdown-item">Cadastrar novo serviço</a>';
-                                echo '<a href="formServicos.php" class="dropdown-item">Meus serviços</a>';
+                                echo '<a href="servicosCliente.php" class="dropdown-item">Meus serviços</a>';
                             }
                         ?>
                     </div>

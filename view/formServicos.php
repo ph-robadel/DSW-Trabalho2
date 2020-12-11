@@ -15,6 +15,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../css/estilo.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">     
+        
+        <!-- AQUI MAYCON -->
+        <script>
+            function addData(){
+                tabela = document.getElementById("tabela-datas");
+                data = document.getElementById("data");
+                tr = createElement("tr");
+                tr.innerHTML("<td>"+data.value()+"</td>");
+                tabela.appendChild();
+            }
+        </script>
 
     </head>
     <body style="width: auto;" class="bg-light">
@@ -55,7 +66,23 @@
                     ?>
                   </select>
                 </div>
-                
+
+                <div class="form-group col-6">
+                  <label for="">Data oferta</label>
+                  <input class="form-control" type="date" name="data" id="data">
+                </div>
+
+                <div class="form-group col-6">
+                    <buttom class="btn btn-success" onClick="Funcao()">Adicionar data</buttom>
+                </div>
+
+                <div class="form-group col-6">
+                    <table border="1" id="tabela-datas">
+                        <tr>
+                            <th>Datas adicionadas</th>
+                        </tr>
+                    </table>
+                </div>
                 <div class="form-group col-6">
                     <input class="btn btn-success" type="submit" value="Cadastrar">
                 </div>

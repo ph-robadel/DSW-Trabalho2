@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `empresaDB`.`servicos` (
   `valor` FLOAT NOT NULL,
   `descricao` TEXT NOT NULL,
   PRIMARY KEY (`idServico`),
-  INDEX `fk_servicos_tipo_idx` (`idTipo` ASC) VISIBLE,
+  INDEX `fk_servicos_tipo_idx` (`idTipo` ASC)  ,
   CONSTRAINT `fk_servicos_tipo`
     FOREIGN KEY (`idTipo`)
     REFERENCES `empresaDB`.`tipo` (`idTipo`)
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `empresaDB`.`datasdisponiveis` (
   `data` DATE NOT NULL,
   `disponivel` TINYINT(1) NOT NULL,
   PRIMARY KEY (`idDisponibilidade`),
-  INDEX `fk_datasdisponiveis_servicos1_idx` (`idServico` ASC) VISIBLE,
+  INDEX `fk_datasdisponiveis_servicos1_idx` (`idServico` ASC)  ,
   CONSTRAINT `fk_datasdisponiveis_servicos1`
     FOREIGN KEY (`idServico`)
     REFERENCES `empresaDB`.`servicos` (`idServico`)
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `empresaDB`.`venda` (
   `valor` FLOAT NOT NULL,
   `quantidade` INT NOT NULL,
   PRIMARY KEY (`idVenda`),
-  INDEX `fk_venda_clientes1_idx` (`idCliente` ASC) VISIBLE,
+  INDEX `fk_venda_clientes1_idx` (`idCliente` ASC)  ,
   CONSTRAINT `fk_venda_clientes1`
     FOREIGN KEY (`idCliente`)
     REFERENCES `empresaDB`.`clientes` (`idClientes`)
@@ -107,8 +107,8 @@ CREATE TABLE IF NOT EXISTS `empresaDB`.`item` (
   `idServico` INT NOT NULL,
   `valor` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idVenda`, `idServico`),
-  INDEX `fk_venda_has_servicos_servicos1_idx` (`idServico` ASC) VISIBLE,
-  INDEX `fk_venda_has_servicos_venda1_idx` (`idVenda` ASC) VISIBLE,
+  INDEX `fk_venda_has_servicos_servicos1_idx` (`idServico` ASC)  ,
+  INDEX `fk_venda_has_servicos_venda1_idx` (`idVenda` ASC)  ,
   CONSTRAINT `fk_venda_has_servicos_venda1`
     FOREIGN KEY (`idVenda`)
     REFERENCES `empresaDB`.`venda` (`idVenda`)

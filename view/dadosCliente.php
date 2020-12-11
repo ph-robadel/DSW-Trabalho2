@@ -1,9 +1,15 @@
 <?php
- function formatarData($data) {
+  function formatarData($data) {
     return date('d/m/Y', $data);
-}
-session_start();
-$cliente = $_SESSION['cliente'];
+  }
+
+  session_start();
+  if(!isset($_SESSION["login-cliente"])){
+    header("Location:../view/login.php");
+  }
+
+  $cliente = $_SESSION['login-cliente'];
+
 ?>
 
 <!DOCTYPE html>
@@ -29,43 +35,37 @@ $cliente = $_SESSION['cliente'];
         <!--Content-->
         <div class="container pt-2">
             <h2 class="my-3">Meus dados</h2><br>
-            <form action="../controller/controllerCliente.php" method="POST">
-                <input type="hidden" name="opcao" value="1">
-                <div class="form-group col-6">
-                  <label for="">Nome completo</label>
-                  <input class="form-control" type="text" placeholder="Digite seu nome" name="nome">
-                </div>
-                <div class="form-group col-6">
-                  <label for="">CPF</label>
-                  <input class="form-control" type="text" name="cpf" placeholder="Digite apenas os números do seu CPF">
-                </div>
-                <div class="form-group col-6">
-                  <label for="">Data de Nascimento</label>
-                  <input class="form-control" type="date" name="dataNascimento">
-                </div>
-                <div class="form-group col-6">
-                  <label for="">Email</label>
-                  <input class="form-control" type="text" name="email" placeholder="Digite seu email">
-                </div>
-                <div class="form-group col-6">
-                  <label for="">Telefone</label>
-                  <input class="form-control" type="text" name="telefone" placeholder="Digite seu telefone">
-                </div>
-                <div class="form-group col-6">
-                  <label for="">Endereço</label>
-                  <input class="form-control" type="text" name="endereco" placeholder="Digite seu endereço completo">
-                </div>
-                <div class="form-group col-6">
-                  <label for="">Cadatre sua senha</label>
-                  <input class="form-control" type="password" name="senha" placeholder="Senha">
-                </div>
-                <div class="form-group col-6">
-                    <input class="btn btn-success" type="submit" value="Enviar">
-                </div>
-            </form>
+            <div class="form-group col-6">
+              <label for="">Nome completo</label>
+              <input class="form-control" type="text" value="<?php echo $cliente->nome?>" readonly>
+            </div>
+            <div class="form-group col-6">
+              <label for="">CPF</label>
+              <input class="form-control" type="text" value="<?php echo $cliente->cpf?>" readonly>
+            </div>
+            <div class="form-group col-6">
+              <label for="">Data de Nascimento</label>
+              <input class="form-control" type="text" value="<?php echo formatarData($cliente->dtNascimento) ?>" readonly>
+            </div>
+            <div class="form-group col-6">
+              <label for="">Email</label>
+              <input class="form-control" type="text" value="<?php echo $cliente->email?>" readonly>
+            </div>
+            <div class="form-group col-6">
+              <label for="">Telefone</label>
+              <input class="form-control" type="text" value="<?php echo $cliente->telefone?>" readonly>
+            </div>
+            <div class="form-group col-6">
+              <label for="">Endereço</label>
+              <input class="form-control" type="text" value="<?php echo $cliente->endereco?>" readonly>
+            </div>
+            <div class="form-group col-6">
+              <label for="">Senha</label>
+              <input class="form-control" type="password" name="senha" value="<?php echo $cliente->senha?>" readonly>
+            </div>
             <!--Botão de Edição que leva pra atualização dos dados do cliente da sessão-->
             <div class="form-group col-6">
-                <a href="formClienteAtualizar.php"><button class="btn btn-secondary">Editar dados</button></a>
+                <a href="formClienteAtualizar.php"><button class="btn btn-success">Editar dados</button></a>
             </div>
         </div>
 

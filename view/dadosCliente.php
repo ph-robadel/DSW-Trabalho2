@@ -62,6 +62,7 @@
             <!--Botão de Edição que leva pra atualização dos dados do cliente da sessão-->
             <div class="form-group col-6">
                 <a href="formClienteAtualizar.php"><button class="btn btn-success">Editar dados</button></a>
+                <a href="../controller/controllerCliente.php?opcao=4"><button class="btn btn-success">Excluir conta</button></a>
             </div>
         </div>
 

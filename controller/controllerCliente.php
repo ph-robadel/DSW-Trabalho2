@@ -87,10 +87,11 @@
 
     
     function excluir(){
-        $cpf = (int) $_REQUEST['cpf'];
-        $clienteDao->excluirCliente($cpf);
-
-        header("Location: controllerCliente.php?opcao=2");
+        session_start();
+        $id = $_SESSION["login-cliente"]->idClientes;
+        $clienteDao = new ClienteDao();
+        $clienteDao->excluirCliente($id);
+        logoff();
     }
     
 
@@ -115,7 +116,7 @@
 
         $clienteDao = new ClienteDao();
         $clienteDao->atualizarCliente($cliente);
-        
+
         $_SESSION["login-cliente"] = $clienteDao->getCliente($cliente->getId());
 
         header("Location:../view/dadosCliente.php");

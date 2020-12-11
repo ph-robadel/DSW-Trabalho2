@@ -46,12 +46,8 @@
             return $lista;
         }
 
-        public function excluirCliente($cpf) {
-            $sql = $this->con->prepare("delete from clientes where CPF = :cpf");
-
-            $sql->bindValue(':cpf', $cpf);
-
-            $sql->execute();
+        public function excluirCliente($id) {
+            $sql = $this->con->query("delete from clientes where idClientes = $id");
         }
 
        public function getCliente($id) {

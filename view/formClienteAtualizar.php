@@ -1,9 +1,12 @@
 <?php
  function formatarData($data) {
     return date('d/m/Y', $data);
-}
-session_start();
-$cliente = $_SESSION['cliente'];
+  }
+  session_start();
+  if(!isset($_SESSION["login-cliente"])){
+      header("Location:login.php");
+  }
+  $cliente = $_SESSION["login-cliente"];
 ?>
 
 <!DOCTYPE html>
@@ -28,28 +31,28 @@ $cliente = $_SESSION['cliente'];
 
         <!--Content-->
         <div class="container pt-2">
-            <h2 class="my-3">Meus dados</h2><br>
+            <h2 class="my-3">Editar Dados</h2><br>
             <form action="../controller/controllerCliente.php" method="POST">
                 <input type="hidden" name="opcao" value="5">
                 <div class="form-group col-6">
                   <label for="">Nome completo</label>
-                  <input class="form-control" type="text"  name="nome" value="<?php echo $cliente->nome ?>">
+                  <input class="form-control" type="text" placeholder="Digite seu nome"  name="nome" value="<?php echo $cliente->nome ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">CPF</label>
-                  <input class="form-control" type="text" name="cpf"  value="<?php echo $cliente->cpf ?>">
+                  <input class="form-control" type="text" placeholder="Digite apenas os números do seu CPF" name="cpf"  value="<?php echo $cliente->cpf ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Data de Nascimento</label>
                   <input class="form-control" type="date" name="dataNascimento" value="<?php echo $cliente->dtNascimento ?>">
                 </div>
                 <div class="form-group col-6">
-                  <label for="">Email</label>
-                  <input class="form-control" type="text" name="email"  placeholder="<?php echo $cliente->email ?>">
+                  <label for="">E-mail</label>
+                  <input class="form-control" type="text" placeholder="Digite seu telefone" name="email"  placeholder="Digite seu e-mail" value="<?php echo $cliente->email ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Telefone</label>
-                  <input class="form-control" type="text" name="telefone"  value="<?php echo $cliente->telefone ?>">
+                  <input class="form-control" type="text" placeholder="Digite seu endereço completo" name="telefone"  value="<?php echo $cliente->telefone ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Endereço</label>
@@ -57,7 +60,7 @@ $cliente = $_SESSION['cliente'];
                 </div>
                 <div class="form-group col-6">
                   <label for="">Cadatre sua senha</label>
-                  <input class="form-control" type="password" name="senha"  value="<?php echo $cliente->senha ?>">
+                  <input class="form-control" type="password" placeholder="Senha" name="senha"  value="<?php echo $cliente->senha ?>">
                 </div>
                 <div class="form-group col-6">
                     <input class="btn btn-success" type="submit" value="Enviar">

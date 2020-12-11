@@ -18,15 +18,11 @@
             $sql->bindValue(':endereco', $cliente->getEndereco());
             $sql->bindValue(':telefone', $cliente->getTelefone());
             $sql->bindValue(':cpf', $cliente->getCpf());
-            $sql->bindValue(':dataNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
+            $sql->bindValue(':dataNascimento', $cliente->getDataNascimento());
             $sql->bindValue(':email', $cliente->getEmail());
             $sql->bindValue(':senha', $cliente->getSenha());
             
             $sql->execute();
-        }
-
-        private function converteDataMySQL($data) {
-            return date('Y-m-d', $data);
         }
 
         // public function getClientes(){
@@ -58,11 +54,10 @@
             $sql->execute();
         }
 
-       public function getCliente($cpf) {
-            $sql = $this->con->prepare("select * from clientes where CPF = :cpf");
+       public function getCliente($id) {
+            $sql = $this->con->prepare("select * from clientes where idClientes = :id");
 
-            $sql->bindValue(':cpf', $cpf);
-
+            $sql->bindValue(':id', $id);
             $sql->execute();
 
             return $sql->fetch(PDO::FETCH_OBJ);
@@ -84,13 +79,14 @@
 
 
         public function atualizarCliente(Cliente $cliente) {
+            echo "<br>Ok";
             $sql = $this->con->prepare("update clientes set nome= :nome, endereco= :endereco , telefone= :telefone, cpf= :cpf, dtNascimento= :dataNascimento, email=:email, senha=:senha where idClientes = :id");
             
             $sql->bindValue(':nome', $cliente->getNome());
             $sql->bindValue(':endereco', $cliente->getEndereco());
             $sql->bindValue(':telefone', $cliente->getTelefone());
             $sql->bindValue(':cpf', $cliente->getCpf());
-            $sql->bindValue(':dataDeNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
+            $sql->bindValue(':dataNascimento', $cliente->getDataNascimento());
             $sql->bindValue(':email', $cliente->getEmail());
             $sql->bindValue(':senha', $cliente->getSenha());
             $sql->bindValue(':id', $cliente->getId());

@@ -107,12 +107,17 @@
         $dataNascimento = $_REQUEST["dataNascimento"];
         $email = $_REQUEST["email"];
         $senha = $_REQUEST["senha"];
-        $id = $_SESSION["login-cliente"]->getId();
+        
+        $id = $_SESSION["login-cliente"]->idClientes;
 
         $cliente = new Cliente($nome, $endereco, $telefone, $cpf, $dataNascimento, $email, $senha);
         $cliente->setId($id);
+
+        $clienteDao = new ClienteDao();
         $clienteDao->atualizarCliente($cliente);
         
+        $_SESSION["login-cliente"] = $clienteDao->getCliente($cliente->getId());
+
         header("Location:../view/dadosCliente.php");
     }
 

@@ -43,8 +43,8 @@
                   <input class="form-control" type="date" name="dataNascimento">
                 </div>
                 <div class="form-group col-6">
-                  <label for="">Email</label>
-                  <input class="form-control" type="text" name="email" placeholder="Digite seu email">
+                  <label for="">E-mail</label>
+                  <input class="form-control" type="text" name="email" placeholder="Digite seu e-mail">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Telefone</label>

@@ -1,8 +1,4 @@
 <?php
-  function formatarData($data) {
-    return date('d/m/Y', $data);
-  }
-
   session_start();
   if(!isset($_SESSION["login-cliente"])){
     header("Location:../view/login.php");
@@ -45,7 +41,7 @@
             </div>
             <div class="form-group col-6">
               <label for="">Data de Nascimento</label>
-              <input class="form-control" type="text" value="<?php echo formatarData($cliente->dtNascimento) ?>" readonly>
+              <input class="form-control" type="date" value="<?php echo $cliente->dtNascimento ?>" readonly>
             </div>
             <div class="form-group col-6">
               <label for="">Email</label>

@@ -162,10 +162,6 @@ class Servico{
     function setIdTipo($idTipo) {
         $this->idTipo = $idTipo;
     }
-
-
-
-    
 }
 
 
@@ -177,14 +173,10 @@ class Tipo{
         
     public $idTipo;
     public $nome;
-    public $valor;
-   
    
     
-    function Tipo($nome, $valor) {
-       
+    function Tipo($nome) {
         $this->nome = $nome;
-        $this->valor = $valor;
     }
     
     function getId_tipo() {
@@ -195,10 +187,6 @@ class Tipo{
         return $this->nome;
     }
 
-    function getValor() {
-        return $this->valor;
-    }
-
     function setId_tipo($idTipo) {
         $this->idTipo = $idTipo;
     }
@@ -206,16 +194,6 @@ class Tipo{
     function setNome($nome) {
         $this->nome = $nome;
     }
-
-    function setValor($valor) {
-        $this->valor = $valor;
-    }
-
-
-
-
-
-
     
 }
 

@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["tipos"])){
+        header("Location:../controller/controllerServico.php?opcao=6");
+    }
+
+    $tipos = $_SESSION["tipos"];
+?>
+
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -37,7 +46,14 @@
                 </div>
                 <div class="form-group col-6 align-self-center">
                   <label for="">Tipo</label>
-                  <input class="form-control" type="text" placeholder="Digite o tipo" name="idTipo">
+                  <!-- <input class="form-control" type="text" placeholder="Digite o tipo" name="idTipo"> -->
+                  <select name="tipo" id="">
+                    <?php 
+                        foreach($tipos as $tipo){
+                            echo '<option value="'.$tipo->idTipo.'">'.$tipo->nome.'</option>';
+                        }
+                    ?>
+                  </select>
                 </div>
                 
                 <div class="form-group col-6">

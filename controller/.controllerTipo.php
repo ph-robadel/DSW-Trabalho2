@@ -8,20 +8,14 @@
     if ($opcao == 1) {
         $nome = $_REQUEST["nome"];
         $endereco = $_REQUEST["valor"];
-
         $tipo = new Tipo($nome, $valor);
-        
         $tipoDao->incluirTipo($idTipo);
-
         header("Location: controllerTipo.php?opcao=2");
 
     } if ($opcao == 2) {
-
         $listaTipos = $tipoDao->getTipos();
-
         session_start();
         $_SESSION['listaTipos'] = $listaTipos;
-
         header("Location:  ../view/exibirTipos.php");
 
 

@@ -1,6 +1,6 @@
 <?php
     include_once("../model/modelo.php");
-    include_once("../dao/Conexao.php");
+    include_once("Conexao.php");
 
     class TipoDao {
         private $con;

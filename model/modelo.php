@@ -159,7 +159,7 @@ class Servico{
         $this->descricao = $descricao;
     }
 
-    function setId_tipo($idTipo) {
+    function setIdTipo($idTipo) {
         $this->idTipo = $idTipo;
     }
 

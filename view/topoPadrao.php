@@ -24,12 +24,13 @@
                     <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Serviços</a>
                 
                     <div class="dropdown-menu">
-                        <a href="servicos.php" class="dropdown-item">Ver Serviços</a>
+                        <a href="servicos.php" class="dropdown-item">Ver serviços</a>
                         <?php
                             if(!isset($_SESSION["login-cliente"])){
-                                echo '<a href="login.php" class="dropdown-item">Cadastrar</a>';
+                                echo '<a href="login.php" class="dropdown-item">Cadastrar novo serviço</a>';
                             }else{
                                 echo '<a href="formServicos.php" class="dropdown-item">Cadastrar</a>';
+                                echo '<a href="formServicos.php" class="dropdown-item">Meus serviços</a>';
                             }
                         ?>
                     </div>

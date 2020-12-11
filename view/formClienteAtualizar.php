@@ -33,31 +33,31 @@ $cliente = $_SESSION['cliente'];
                 <input type="hidden" name="opcao" value="5">
                 <div class="form-group col-6">
                   <label for="">Nome completo</label>
-                  <input class="form-control" type="text" placeholder="Digite seu nome" name="nome" value="<?php echo $cliente->nome ?>">>
+                  <input class="form-control" type="text"  name="nome" value="<?php echo $cliente->nome ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">CPF</label>
-                  <input class="form-control" type="text" name="cpf" placeholder="Digite apenas os números do seu CPF" value="<?php echo $cliente->cpf ?>">>
+                  <input class="form-control" type="text" name="cpf"  value="<?php echo $cliente->cpf ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Data de Nascimento</label>
-                  <input class="form-control" type="date" name="dataNascimento" value="<?php echo $cliente->dtNascimento ?>">>
+                  <input class="form-control" type="date" name="dataNascimento" value="<?php echo $cliente->dtNascimento ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Email</label>
-                  <input class="form-control" type="text" name="email" placeholder="Digite seu email" value="<?php echo $cliente->email ?>">
+                  <input class="form-control" type="text" name="email"  placeholder="<?php echo $cliente->email ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Telefone</label>
-                  <input class="form-control" type="text" name="telefone" placeholder="Digite seu telefone" value="<?php echo $cliente->telefone ?>">
+                  <input class="form-control" type="text" name="telefone"  value="<?php echo $cliente->telefone ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Endereço</label>
-                  <input class="form-control" type="text" name="endereco" placeholder="Digite seu endereço completo" value="<?php echo $cliente->endereco ?>">
+                  <input class="form-control" type="text" name="endereco"  value="<?php echo $cliente->endereco ?>">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Cadatre sua senha</label>
-                  <input class="form-control" type="password" name="senha" placeholder="Senha" value="<?php echo $cliente->senha ?>">
+                  <input class="form-control" type="password" name="senha"  value="<?php echo $cliente->senha ?>">
                 </div>
                 <div class="form-group col-6">
                     <input class="btn btn-success" type="submit" value="Enviar">
@@ -82,32 +82,4 @@ $cliente = $_SESSION['cliente'];
     </html>
 
 
-
-
-<html>
-    <head>
-        <title>Editar Cliente</title>
-    </head>
-    <body>
-    <center>
-        <br>
-        <h2>Alteração de Clientes</h2>
-        <form action="../controller/controllerCliente.php" >
-        <input type="hidden" size="3" name="opcao" value="5">
-            <label> Codigo: </label><input type="text" name="codCliente" value="<?php echo $cliente->codCliente ?>" readonly><br><br>
-            <label> Nome: </label><input type="text" name="nome" value="<?php echo $cliente->nome ?>"><br><br>
-            <label> Endereço: </label><input type="text" name="endereco" value="<?php echo $cliente->endereco ?>"><br><br>
-            <label> Telefone: </label><input type="text" name="telefone" value=" <?php echo  $cliente->telefone ?>"><br><br>
-            <label> Cpf: </label><input type="text" name="cpf" value="<?php echo $cliente->cpf ?>"><br><br>
-            <label> Data Nascimento: </label><input type="dataNascimento" name="senha" value="<?php echo formatarData(strtotime($cliente->dataNascimento)) ?>"><br><br>
-            <label> Email: </label><input type="text" name="email" value="<?php echo $cliente->email ?>"><br><br>
-            <label> Senha: </label><input type="text" name="senha" value="<?php echo $cliente->senha ?>"><br><br>
-           
-            <input type="submit" value="Atualizar">
-            <input type="reset" value="Limpar">
-            <br><br> 
-        </form>
-    </center>
-    </body>
-</html>
-
+}

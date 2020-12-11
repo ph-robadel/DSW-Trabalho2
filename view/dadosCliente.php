@@ -65,7 +65,7 @@ $cliente = $_SESSION['cliente'];
             </form>
             <!--Botão de Edição que leva pra atualização dos dados do cliente da sessão-->
             <div class="form-group col-6">
-                <a href="formClienteAtualizar"><button class="btn btn-secondary">Editar dados</button></a>
+                <a href="formClienteAtualizar.php"><button class="btn btn-secondary">Editar dados</button></a>
             </div>
         </div>
 

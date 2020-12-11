@@ -11,19 +11,13 @@
         }
 
         public function incluirServico(Servico $servico) {
-            $sql = $this->con->prepare("insert into servicos (idTipo, nome, valor, descricao) values (:idTipo, :nome, :valor, :descricao)");
-
+            $sql = $this->con->prepare("insert into servicos (idCliente, idTipo, nome, valor, descricao) values (:idCliente, :idTipo, :nome, :valor, :descricao)");
+            $sql->bindValue(':idCliente', $servico->getIdCliente());
             $sql->bindValue(':idTipo', $servico->getIdTipo());
             $sql->bindValue(':nome', $servico->getNome());
             $sql->bindValue(':valor', $servico->getValor());
             $sql->bindValue(':descricao', $servico->getDescricao());
-            
-            
             $sql->execute();
-        }
-
-        private function converteDataMySQL($data) {
-            return date('Y-m-d', $data);
         }
 
         public function getServicos() {

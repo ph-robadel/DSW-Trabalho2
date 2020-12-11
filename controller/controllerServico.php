@@ -31,19 +31,16 @@
 
     
     function inserir(){
+        session_start();
         $nome = $_REQUEST["nome"];
-        $valor = $_REQUEST["valor"];
-        $descricao = $_REQUEST["nome"];
+        $descricao = $_REQUEST["descricao"];
+        $valor = (float) $_REQUEST["valor"];
         $idTipo = $_REQUEST["idTipo"];
+        $idCliente = $_SESSION["login-cliente"]->idClientes;
 
-        $servico = new Servico($idTipo, $nome, $valor, $descricao );
+        $servico = new Servico($idCliente, $idTipo, $nome, $valor, $descricao);
         $servicoDao = new ServicoDao();
         $servicoDao->incluirServico($servico);
-
-        session_start();
-        $tipoDao = new TipoDao();
-        $tipos = $tipoDao->getTipos();
-        $_SESSION["tipos"] = $tipos;
 
         header("Location: ../view/servicosCliente.php");
 

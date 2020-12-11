@@ -47,7 +47,7 @@
                 <div class="form-group col-6 align-self-center">
                   <label for="">Tipo</label>
                   <!-- <input class="form-control" type="text" placeholder="Digite o tipo" name="idTipo"> -->
-                  <select name="tipo" id="">
+                  <select name="idTipo" id="">
                     <?php 
                         foreach($tipos as $tipo){
                             echo '<option value="'.$tipo->idTipo.'">'.$tipo->nome.'</option>';

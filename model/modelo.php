@@ -104,23 +104,22 @@
 
 
 //------------------------SERVIÇO------------------------
-
 class Servico{
         
     public $idServico;
+    public $idCliente;
+    public $idTipo;
     public $nome;
     public $valor;
     public $descricao;
-    public $idTipo;
    
     
-    function Servico($idTipo, $nome, $valor, $descricao ) {
-       
+    function Servico( $idCliente, $idTipo, $nome, $valor, $descricao ) {
         $this->idTipo = $idTipo;
+        $this->idCliente = $idCliente;
         $this->nome = $nome;
         $this->valor = $valor;
         $this->descricao = $descricao;
-        
     }
     
     function getIdServico() {
@@ -143,8 +142,16 @@ class Servico{
         return $this->idTipo;
     }
 
+    function getIdCliente() {
+        return $this->idCliente;
+    }
+
     function setIdServico($idServico) {
         $this->idServico = $idServico;
+    }
+
+    function setIdCliente($idCliente) {
+        $this->idCliente = $idCliente;
     }
 
     function setNome($nome) {

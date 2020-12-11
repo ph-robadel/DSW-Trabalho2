@@ -84,15 +84,16 @@
 
 
         public function atualizarCliente(Cliente $cliente) {
-            $sql = $this->con->prepare("update clientes set Nome= :nome, Endereco= :endereco ,Telefone=:telefone,Cpf=:cpf, DtNascimento= :dataNascimento, Email=:email,Senha=:senha where CPF = :cpf");
+            $sql = $this->con->prepare("update clientes set nome= :nome, endereco= :endereco , telefone= :telefone, cpf= :cpf, dtNascimento= :dataNascimento, email=:email, senha=:senha where idClientes = :id");
             
-                $sql->bindValue(':nome', $cliente->getNome());
-                $sql->bindValue(':endereco', $cliente->getEndereco());
-                $sql->bindValue(':telefone', $cliente->getTelefone());
-                $sql->bindValue(':cpf', $cliente->getCpf());
-                $sql->bindValue(':dataDeNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
-                $sql->bindValue(':email', $cliente->getEmail());
-                $sql->bindValue(':senha', $cliente->getSenha());
+            $sql->bindValue(':nome', $cliente->getNome());
+            $sql->bindValue(':endereco', $cliente->getEndereco());
+            $sql->bindValue(':telefone', $cliente->getTelefone());
+            $sql->bindValue(':cpf', $cliente->getCpf());
+            $sql->bindValue(':dataDeNascimento', $this->converteDataMySQL($cliente->getDataNascimento()));
+            $sql->bindValue(':email', $cliente->getEmail());
+            $sql->bindValue(':senha', $cliente->getSenha());
+            $sql->bindValue(':id', $cliente->getId());
             
             $sql->execute();
         }

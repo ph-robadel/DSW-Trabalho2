@@ -15,10 +15,10 @@
             autenticar();
             break;
         case 4:
-            op4();
+            excluir();
             break;
         case 5:
-            op5();
+            atualizar();
             break;
         
         default:
@@ -44,15 +44,15 @@
     }
 
 
-    function exibir(){
-        $clienteDao = new ClienteDao();
-        $listaClientes = $clienteDao->getClientes();
+    // function exibir(){
+    //     $clienteDao = new ClienteDao();
+    //     $listaClientes = $clienteDao->getClientes();
 
-        session_start();
-        $_SESSION['clientes'] = $listaClientes;
+    //     session_start();
+    //     $_SESSION['clientes'] = $listaClientes;
 
-        header("Location: ../view/exibirClientes.php");
-    }
+    //     header("Location: ../view/exibirClientes.php");
+    // }
 
     function autenticar(){
         $email = $_REQUEST['email'];
@@ -72,18 +72,18 @@
     }
     
     
-    function buscar() {
-        $cpf = (int) $_REQUEST['cpf'];
-        $cliente = $clienteDao->getCliente($cpf);
+    // function buscar() {
+    //     $id = (int) $_REQUEST['id'];
+    //     $cliente = $clienteDao->getCliente($cpf);
 
-        session_start();
-        $_SESSION['cliente'] = $cliente;
+    //     session_start();
+    //     $_SESSION['cliente'] = $cliente;
 
-        header("Location: ../view/formClienteAtualizar.php");
-    }
+    //     header("Location: ../view/formClienteAtualizar.php");
+    // }
 
     
-    function op4(){
+    function excluir(){
         $cpf = (int) $_REQUEST['cpf'];
         $clienteDao->excluirCliente($cpf);
 
@@ -91,8 +91,12 @@
     }
     
 
-    function op5(){
-        
+    function atualizar(){
+        session_start();
+        if(!isset($_SESSION["login-cliente"])){
+            header("Location:../view/login.php");
+        }
+
         $nome = $_REQUEST["nome"];
         $endereco = $_REQUEST["endereco"];
         $telefone = $_REQUEST["telefone"];
@@ -100,13 +104,13 @@
         $dataNascimento = $_REQUEST["dataNascimento"];
         $email = $_REQUEST["email"];
         $senha = $_REQUEST["senha"];
-        $codCli = $_REQUEST["codCliente"];
+        $id = $_SESSION["login-cliente"]->getId();
 
         $cliente = new Cliente($nome, $endereco, $telefone, $cpf, $dataNascimento, $email, $senha);
-        $cliente->setCodCliente($codCli);
+        $cliente->setId($id);
         $clienteDao->atualizarCliente($cliente);
         
-        header("Location: controllerCliente.php?opcao=2");
+        header("Location:../view/dadosCliente.php");
     }
     
 ?>

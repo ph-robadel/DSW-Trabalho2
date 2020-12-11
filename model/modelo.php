@@ -3,7 +3,7 @@
 
     class Cliente{
         
-        public $codCliente;
+        public $idCliente;
         public $nome;
         public $endereco;
         public $telefone;
@@ -26,8 +26,8 @@
         
         }
         
-        function getCodCliente() {
-            return $this->codCliente;
+        function getId() {
+            return $this->idCliente;
         }
 
         function getNome() {
@@ -58,8 +58,8 @@
             return $this->senha;
         }
 
-        function setCodCliente($codCliente) {
-            $this->codCliente = $codCliente;
+        function setId($id) {
+            $this->idCliente = $id;
         }
 
         function setNome($nome) {

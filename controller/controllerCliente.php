@@ -20,6 +20,9 @@
         case 5:
             atualizar();
             break;
+        case 6:
+            logoff();
+            break;
         
         default:
             echo "<h1 style='text-align:center'>Opção não encontrada!</h1>";
@@ -111,6 +114,14 @@
         $clienteDao->atualizarCliente($cliente);
         
         header("Location:../view/dadosCliente.php");
+    }
+
+    function logoff(){
+        session_start();
+        if(isset($_SESSION["login-cliente"])){
+            $_SESSION["login-cliente"] = NULL;
+        }
+        header("Location:../view/index.php");
     }
     
 ?>

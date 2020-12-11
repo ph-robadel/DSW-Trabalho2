@@ -1,5 +1,5 @@
 <?php 
-// session_start();
+ session_start();
 ?>
 
 <!--Topo-->
@@ -44,6 +44,7 @@
                         echo '<li class="nav-item"><a href="signup.php" class="nav-link">Sign up</a></li>';
                     }else{
                         echo '<li class="nav-item"><a href="dadosCliente.php" class="nav-link">Meus dados</a></li>';
+                        echo '<li class="nav-item"><a href="../controller/controllerCliente.php?opcao=6" class="nav-link">Sair</a></li>';
                     }
                 ?>
             </ul>

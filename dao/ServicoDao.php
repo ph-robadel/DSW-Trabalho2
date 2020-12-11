@@ -1,6 +1,6 @@
 <?php
     include_once("../model/modelo.php");
-    include_once("../dao/Conexao.php");
+    include_once("Conexao.php");
 
     class ServicoDao {
         private $con;
@@ -11,11 +11,13 @@
         }
 
         public function incluirServico(Servico $servico) {
-            $sql = $this->con->prepare("insert into servicos (nome, valor) values (:nome, :valor)");
+            $sql = $this->con->prepare("insert into servicos (idTipo, nome, valor, descricao) values (:idTipo, :nome, :valor, :descricao)");
 
-        
+            $sql->bindValue(':idTipo', $servico->getIdTipo());
             $sql->bindValue(':nome', $servico->getNome());
             $sql->bindValue(':valor', $servico->getValor());
+            $sql->bindValue(':descricao', $servico->getDescricao());
+            
             
             $sql->execute();
         }
@@ -49,18 +51,18 @@
 
 
 
-        public function excluirServico($cpf) {
-            $sql = $this->con->prepare("delete from servicos where idServico= :idServico");
+        public function excluirServico($idServico) {
+            $sql = $this->con->prepare("delete from servicos where = :idServico");
 
-            $sql->bindValue(':cpf', $cpf);
+            $sql->bindValue(':idServico', $idServico);
 
             $sql->execute();
         }
 
-       public function getServico($cpf) {
+       public function getServico($idServico) {
             $sql = $this->con->prepare("select * from servicos where idServico = :idServico");
 
-            $sql->bindValue(':cpf', $cpf);
+            $sql->bindValue(':idServico', $idServico);
 
             $sql->execute();
 
@@ -69,15 +71,12 @@
 
 
   public function atualizarServico(Servico $servico) {
-        $sql = $this->con->prepare("update servicos set Nome= :nome, Endereco= :endereco ,Telefone=: telefone, Cpf= :cpf, DtNascimento= :dataNascimento, Email= :email, Senha= :senha where idServico = :idServico");
+        $sql = $this->con->prepare("insert into servicos (idTipo, nome, valor, descricao) values (:idTipo, :nome, :valor, :descricao)");
         
-            $sql->bindValue(':nome', $servico->getNome());
-            $sql->bindValue(':endereco', $servico->getEndereco());
-            $sql->bindValue(':telefone', $servico->getTelefone());
-            $sql->bindValue(':cpf', $servico->getCpf());
-            $sql->bindValue(':dataDeNascimento', $this->converteDataMySQL($servico->getDataNascimento()));
-            $sql->bindValue(':email', $servico->getEmail());
-            $sql->bindValue(':senha', $servico->getSenha());
+        $sql->bindValue(':idTipo', $servico->getIdTipo());
+        $sql->bindValue(':nome', $servico->getNome());
+        $sql->bindValue(':valor', $servico->getValor());
+        $sql->bindValue(':descricao', $servico->getDescricao());
         
         $sql->execute();
     }

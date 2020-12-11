@@ -21,22 +21,23 @@
         <!--Content-->
         <div class="container pt-2">
             <h2 class="my-3">Cadastro de Serviço</h2><br>
-            <form action="">
+            <form action="../controller/controllerServico.php" method="POST">
+                <input type="hidden" name="opcao" value="1">
                 <div class="form-group col-6">
                   <label for="">Nome do serviço</label>
-                  <input class="form-control" type="text">
+                  <input class="form-control" type="text" placeholder="Digite o serviço" name="nome">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Descrição</label>
-                  <input class="form-control" type="textarea">
+                  <input class="form-control" type="text" placeholder="Digite a descrição" name="descricao">
                 </div>
                 <div class="form-group col-6">
                   <label for="">Valor</label>
-                  <input class="form-control" type="text">
+                  <input class="form-control" type="text" placeholder="Digite o valor" name="valor">
                 </div>
                 <div class="form-group col-6 align-self-center">
                   <label for="">Tipo</label>
-                  <input class="form-control" type="text">
+                  <input class="form-control" type="text" placeholder="Digite o tipo" name="idTipo">
                 </div>
                 
                 <div class="form-group col-6">

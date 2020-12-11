@@ -114,12 +114,13 @@ class Servico{
     public $idTipo;
    
     
-    function Servico( $nome, $valor, $descricao, $idTipo) {
+    function Servico($idTipo, $nome, $valor, $descricao ) {
        
+        $this->idTipo = $idTipo;
         $this->nome = $nome;
         $this->valor = $valor;
         $this->descricao = $descricao;
-        $this->idTipo = $idTipo;
+        
     }
     
     function getIdServico() {

@@ -9,14 +9,14 @@
         $nome = $_REQUEST["nome"];
         $valor = $_REQUEST["valor"];
         $descricao = $_REQUEST["nome"];
-        $id_tipo = $_REQUEST["idTipo"];
+        $idTipo = $_REQUEST["idTipo"];
       
 
-        $servico = new Servico( $nome, $valor, $descricao, $idTipo);
-        
+        $servico = new Servico($idTipo, $nome, $valor, $descricao );
+        $servicoDao = new ServicoDao();
         $servicoDao->incluirServico($servico);
 
-        header("Location: controllerServico.php?opcao=2");
+        header("Location: ../view/servicos.php");
 
     } if ($opcao == 2) {
         $listaServicos = $servicoDao->getServicos();

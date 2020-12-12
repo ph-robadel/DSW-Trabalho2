@@ -27,9 +27,7 @@
                     <div class="dropdown-menu">
                         <a href="servicos.php" class="dropdown-item">Ver serviços</a>
                         <?php
-                            if(!isset($_SESSION["login-cliente"])){
-                                echo '<a href="../controller/controllerServico.php?opcao=2" class="dropdown-item">Ver serviços</a>';
-                            }else{
+                            if(isset($_SESSION["login-cliente"])){
                                 echo '<a href="formServicos.php" class="dropdown-item">Cadastrar novo serviço</a>';
                                 echo '<a href="servicosCliente.php" class="dropdown-item">Meus serviços</a>';
                             }

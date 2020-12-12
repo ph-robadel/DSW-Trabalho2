@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">     
 </head>
 <body style="width: auto;" class="bg-light">
-    <?php 
-        require_once("topoPadrao.php");
+    <?php
+        include_once("topoPadrao.php");
     ?>
     
     <!--Banner-->
@@ -40,6 +40,12 @@
             </tr>
             <tr>
                 <td><h5>Descrição: <?php echo $serv->descricao; ?></h5></td>
+            </tr>
+            <tr>
+                <td><h5>Prestador do serviço: <?php echo $serv->nomeCliente; ?></h5></td>
+            </tr>
+            <tr>
+                <td><h5>Categoria: <?php echo $serv->nomeTipo; ?></h5></td>
             </tr>
             <tr>
                 <a href="">

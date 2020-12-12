@@ -21,8 +21,8 @@
         }
 
         public function getServicos() {
-            echo "ok-DAO";
-            $rs = $this->con->query("select * from servicos");
+            $rs = $this->con->query("select s.idServico, s.idCliente, s.idTipo, c.nome as nomeCliente, t.nome as nomeTipo, s.nome, s.descricao, s.valor 
+                    from servicos s INNER JOIN tipo t ON (s.idTipo = t.idTipo) INNER JOIN clientes c ON (s.idCliente = c.idClientes)");
 
             $lista = array();
 

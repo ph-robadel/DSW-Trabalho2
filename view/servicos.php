@@ -41,12 +41,12 @@
             <tr>
                 <td><h5>Descrição: <?php echo $serv->descricao; ?></h5></td>
             </tr>
-            <tr>
-                <td><h5>Prestador do serviço: <?php echo $serv->nomeCliente; ?></h5></td>
+            <!-- <tr>
+                <td><h5>Prestador do serviço: <?php/* echo $serv->nomeCliente; */?></h5></td>
             </tr>
             <tr>
-                <td><h5>Categoria: <?php echo $serv->nomeTipo; ?></h5></td>
-            </tr>
+                <td><h5>Categoria: <?php /*echo $serv->nomeTipo;*/ ?></h5></td>
+            </tr> -->
             <tr>
                 <a href="">
                     <button class="btn btn-primary">Contratar</button>

@@ -57,7 +57,7 @@
     } 
     
     function exibir(){
-        $ServicoDao = new ServicoDao();
+        $servicoDao = new ServicoDao();
         $listaServicos = $servicoDao->getServicos();
         session_start();
         $_SESSION['listaServicos'] = $listaServicos;

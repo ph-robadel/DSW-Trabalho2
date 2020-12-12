@@ -21,6 +21,7 @@
         }
 
         public function getServicos() {
+            echo "ok-DAO";
             $rs = $this->con->query("select * from servicos");
 
             $lista = array();

@@ -5,7 +5,7 @@
     class TipoDao {
         private $con;
 
-        public function TipoDao() {
+        function __construct() {
             $c = new Conexao();
             $this->con = $c->getConexao();
         }

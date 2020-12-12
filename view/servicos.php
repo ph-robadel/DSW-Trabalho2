@@ -22,11 +22,32 @@
     <div class="container pt-2" >
 
         <h2 class="display-4 pt-4">Confira abaixo</h2><br>
-
-        <!--GET aqui-->
-        <div id="servicos" class="row">
-            
-        </div>
+    
+        <?php
+            $listaServicos = $_SESSION['listaServicos']; 
+            foreach ($listaServicos as $serv) 
+            { 
+        ?>
+                
+        <table border="0" width="50%" cellspacing="5">
+            <tr align="left">
+                <td><strong><h3 class="style-4"><?php echo $serv->nome; ?></h3></strong></td>
+            </tr>
+            <tr>
+                <td><h5>Valor: R$<?php echo $serv->valor; ?></h5></td>
+            </tr>
+            <tr>
+                <td><h5>Descrição: <?php echo $serv->descricao; ?></h5></td>
+            </tr>
+            <tr>
+                <a href="">
+                    <button class="btn btn-primary">Contratar</button>
+                </a>
+            </tr>
+        </table> 
+        <?php
+            }
+        ?>
     </div>
 
     <!--Rodape-->

@@ -5,7 +5,7 @@
     class ClienteDao {
         private $con;
 
-        public function ClienteDao() {
+        function __construct() {
             $c = new Conexao();
             $this->con = $c->getConexao();
         }

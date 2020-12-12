@@ -5,7 +5,7 @@
     class ServicoDao {
         private $con;
 
-        public function ServicoDao() {
+        function __construct() {
             $c = new Conexao();
             $this->con = $c->getConexao();
         }

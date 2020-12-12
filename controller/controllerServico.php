@@ -29,7 +29,6 @@
             echo "<h1 style='text-align:center'>Opção não encontrada!</h1>";
             break;
     }
-
     
     function inserir(){
         session_start();
@@ -62,7 +61,7 @@
         $listaServicos = $servicoDao->getServicos();
         session_start();
         $_SESSION['listaServicos'] = $listaServicos;
-        header("Location:  ../view/exibirServicos.php");
+        header("Location:  ../view/servicos.php");
     }
 
     function buscar() {

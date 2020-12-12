@@ -31,8 +31,19 @@
             return $lista;
         }
         
+        public function getServicosCliente($idCliente) {
+            $rs = $this->con->query("select * from servicos where idCliente = $idCliente");
+
+            $lista = array();
+            while ($servico = $rs->fetch(PDO::FETCH_OBJ)) {
+                $lista[] = $servico;
+            }
+
+            return $lista;
+        }
+        
         // Tipo serviço
-        public function getId_tipo($idTipo) {
+        public function getIdTipo($idTipo) {
             $sql = $this->con->prepare(" select nome from tipo where idTipo= :idTipo");
             $sql->bindValue(':idTipo', $idTipo);
 
@@ -40,17 +51,12 @@
             $tipo = $sql->fetch(PDO::FETCH_OBJ);
 
             return $tipo->nome;
-
         }
 
 
-
         public function excluirServico($idServico) {
-            $sql = $this->con->prepare("delete from servicos where = :idServico");
-
-            $sql->bindValue(':idServico', $idServico);
-
-            $sql->execute();
+            $this->con->query("delete from servicos where idServico= $idServico");
+            $this->con->query("delete from datasdisponiveis where idServico = $idServico");
         }
 
        public function getServico($idServico) {
@@ -64,16 +70,22 @@
         }
 
 
-  public function atualizarServico(Servico $servico) {
-        $sql = $this->con->prepare("insert into servicos (idTipo, nome, valor, descricao) values (:idTipo, :nome, :valor, :descricao)");
-        
-        $sql->bindValue(':idTipo', $servico->getIdTipo());
-        $sql->bindValue(':nome', $servico->getNome());
-        $sql->bindValue(':valor', $servico->getValor());
-        $sql->bindValue(':descricao', $servico->getDescricao());
-        
-        $sql->execute();
-    }
+        public function atualizarServico(Servico $servico) {
+            $sql = $this->con->prepare("insert into servicos (idTipo, nome, valor, descricao) values (:idTipo, :nome, :valor, :descricao)");
+            
+            $sql->bindValue(':idTipo', $servico->getIdTipo());
+            $sql->bindValue(':nome', $servico->getNome());
+            $sql->bindValue(':valor', $servico->getValor());
+            $sql->bindValue(':descricao', $servico->getDescricao());
+            
+            $sql->execute();
+        }
+
+        public function getUltimoId(){
+            $sql = $this->con->query("select MAX(idServico) as maior from servicos");
+            $maior = $sql->fetch(PDO::FETCH_OBJ)->maior;
+            return $maior;
+        }
     
     }
 ?>

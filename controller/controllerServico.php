@@ -2,6 +2,7 @@
     include_once("../model/modelo.php");
     include_once("../dao/ServicoDao.php");
     include_once("../dao/TipoDao.php");
+    include_once("../dao/DataDisponivelDao.php");
 
     $opcao = (int) $_REQUEST['opcao'];
     switch ($opcao) {
@@ -41,6 +42,16 @@
         $servico = new Servico($idCliente, $idTipo, $nome, $valor, $descricao);
         $servicoDao = new ServicoDao();
         $servicoDao->incluirServico($servico);
+
+        
+        $idServico = $servicoDao->getUltimoId();
+        $dataDisponivelDao = new DataDisponivelDao();
+        for($i = 1; $i <= 7; $i++){
+            $data = $_REQUEST["data$i"];
+            if($data != ""){
+                $dataDisponivelDao->incluirData($idServico, $data);
+            }
+        }
 
         header("Location: ../view/servicosCliente.php");
 
